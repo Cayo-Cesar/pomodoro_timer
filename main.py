@@ -7,6 +7,7 @@ break_time = 10 * 60
 is_paused = False
 is_break_time = False
 
+
 def update_timer():
     global remaining_time, is_break_time
     if remaining_time > 0 and not is_paused:
@@ -84,7 +85,7 @@ reset_button.grid(row=3, column=1)
 pause_button = tk.Button(text="Pause", highlightthickness=0, command=pause_timer, bg="red", fg="white", font=("Comic Sans MS", 14), width=10, height=2, bd=5, relief="ridge")
 pause_button.grid(row=4, column=1)
 
-label = tk.Label(text="Made by: Cayo Cesar", font=("Comic Sans MS", 10), bg="#b22222", fg="white")
+label = tk.Label(text="Made by: Cayo-Cesar", font=("Comic Sans MS", 10), bg="#b22222", fg="white")
 label.grid(row=5, column=1, pady=10)
 
 window.mainloop()
