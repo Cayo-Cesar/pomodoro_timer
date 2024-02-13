@@ -7,6 +7,7 @@ break_time = 10 * 60
 is_paused = False
 is_break_time = False
 
+
 def update_timer():
     global remaining_time, is_break_time
     if remaining_time > 0 and not is_paused:
