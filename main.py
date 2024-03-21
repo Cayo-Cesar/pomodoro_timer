@@ -30,7 +30,6 @@ def update_timer():
             start_break()
 def start_timer():
     global remaining_time, is_paused
-    remaining_time = 60 * 60
     is_paused = False
     update_timer()
     print("Timer started!")
@@ -53,11 +52,14 @@ def pause_timer():
 
 def reset_timer():
     global remaining_time, is_paused
-    remaining_time = 60 * 60
     is_paused = False
-    canvas.itemconfig(timer_text, text="01:00")
+    canvas.itemconfig(timer_text, text=f"{remaining_time // 60:02d}:{remaining_time % 60:02d}")
     print("Timer reset!")
 
+def update_timer_text():
+    minutes = remaining_time // 60
+    seconds = remaining_time % 60
+    canvas.itemconfig(timer_text, text=f"{minutes:02d}:{seconds:02d}")
 
 def open_configuration_window():
     # Create a new window for configuration
@@ -81,18 +83,11 @@ def open_configuration_window():
     save_button = tk.Button(config_window, text="Save", command=lambda: save_configuration(timer_entry.get(), break_entry.get()), bg="red", fg="white", font=("Comic Sans MS", 14), width=5, height=1, bd=5, relief="ridge")
     save_button.pack()
 
-# def save_configuration(timer, break_time):
-#     # Convert the timer and break time to seconds and update the global variables
-#     global remaining_time, break_time
-#     remaining_time = int(timer) * 60
-#     break_time = int(break_time) * 60
-
-#     # Close the configuration window
-#     config_window.destroy()
-
-#     # Update the configure_button command to open the configuration window
-#     configure_button = tk.Button(text="Configure", highlightthickness=0, command=open_configuration_window, bg="red", fg="white", font=("Comic Sans MS", 14), width=10, height=2, bd=5, relief="ridge")
-#     configure_button.grid(row=6, column=0)
+def save_configuration(timer, break_duration):
+    global remaining_time, break_time
+    remaining_time = int(timer) * 60
+    break_time = int(break_duration) * 60
+    update_timer_text()
 
 window = tk.Tk()
 window.title("Pomodoro Timer")
@@ -122,7 +117,7 @@ reset_button.grid(row=3, column=1)
 pause_button = tk.Button(text="Pause", highlightthickness=0, command=pause_timer, bg="red", fg="white", font=("Comic Sans MS", 14), width=10, height=2, bd=5, relief="ridge")
 pause_button.grid(row=4, column=1)
 
-label = tk.Label(text="Made by: Cayo-Cesar", font=("Comic Sans MS", 10), bg="#b22222", fg="white")
+label = tk.Label(text="Make by: Cayo-Cesar", font=("Comic Sans MS", 10), bg="#b22222", fg="white")
 label.grid(row=5, column=1, pady=10)
 
 configure_button = tk.Button(text="Configure", highlightthickness=0, command=open_configuration_window, bg="red", fg="white", font=("Comic Sans MS", 14), width=10, height=2, bd=5, relief="ridge")
