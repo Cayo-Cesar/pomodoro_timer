@@ -8,7 +8,6 @@ break_time = 10 * 60
 is_paused = False
 is_break_time = False
 
-
 def update_timer():
 
     global remaining_time, is_break_time
@@ -30,7 +29,7 @@ def update_timer():
             is_break_time = True
             ctypes.windll.user32.MessageBoxW(0, "O tempo principal terminou. Aperte em OK pra iniciar o tempo de pausa", "Alerta", 1)
             start_break()
-            
+
 def start_timer():
     global remaining_time, is_paused
     is_paused = False
