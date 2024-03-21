@@ -1,4 +1,5 @@
-import tkinter as tk, messagebox
+import tkinter as tk
+from tkinter import messagebox
 import time
 import ctypes
 
@@ -57,6 +58,42 @@ def reset_timer():
     canvas.itemconfig(timer_text, text="01:00")
     print("Timer reset!")
 
+
+def open_configuration_window():
+    # Create a new window for configuration
+    config_window = tk.Toplevel(window)        
+    config_window.title("Configuration")
+    config_window.geometry("300x200")
+    config_window.configure(background="#b22222")
+
+    # Create labels and entry fields for setting the timer and break time
+    timer_label = tk.Label(config_window, text="Timer (minutes):")
+    timer_label.pack()
+    timer_entry = tk.Entry(config_window)
+    timer_entry.pack()
+
+    break_label = tk.Label(config_window, text="Break (minutes):")
+    break_label.pack()
+    break_entry = tk.Entry(config_window)
+    break_entry.pack()
+
+    # Create a save button to apply the configuration
+    save_button = tk.Button(config_window, text="Save", command=lambda: save_configuration(timer_entry.get(), break_entry.get()))
+    save_button.pack()
+
+# def save_configuration(timer, break_time):
+#     # Convert the timer and break time to seconds and update the global variables
+#     global remaining_time, break_time
+#     remaining_time = int(timer) * 60
+#     break_time = int(break_time) * 60
+
+#     # Close the configuration window
+#     config_window.destroy()
+
+#     # Update the configure_button command to open the configuration window
+#     configure_button = tk.Button(text="Configure", highlightthickness=0, command=open_configuration_window, bg="red", fg="white", font=("Comic Sans MS", 14), width=10, height=2, bd=5, relief="ridge")
+#     configure_button.grid(row=6, column=0)
+
 window = tk.Tk()
 window.title("Pomodoro Timer")
 window.minsize(width=500, height=300)
@@ -87,5 +124,8 @@ pause_button.grid(row=4, column=1)
 
 label = tk.Label(text="Made by: Cayo-Cesar", font=("Comic Sans MS", 10), bg="#b22222", fg="white")
 label.grid(row=5, column=1, pady=10)
+
+configure_button = tk.Button(text="Configure", highlightthickness=0, command=open_configuration_window, bg="red", fg="white", font=("Comic Sans MS", 14), width=10, height=2, bd=5, relief="ridge")
+configure_button.grid(row=6, column=0)
 
 window.mainloop()
