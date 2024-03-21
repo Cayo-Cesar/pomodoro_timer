@@ -63,22 +63,22 @@ def open_configuration_window():
     # Create a new window for configuration
     config_window = tk.Toplevel(window)        
     config_window.title("Configuration")
-    config_window.geometry("300x200")
+    config_window.geometry("200x150")
     config_window.configure(background="#b22222")
 
     # Create labels and entry fields for setting the timer and break time
-    timer_label = tk.Label(config_window, text="Timer (minutes):")
+    timer_label = tk.Label(config_window, text="Timer (minutes):",bg="#b22222", fg="white")
     timer_label.pack()
-    timer_entry = tk.Entry(config_window)
+    timer_entry = tk.Entry(config_window, bg="#b22222", fg="white")
     timer_entry.pack()
 
-    break_label = tk.Label(config_window, text="Break (minutes):")
+    break_label = tk.Label(config_window, text="Break (minutes):",bg="#b22222", fg="white")
     break_label.pack()
-    break_entry = tk.Entry(config_window)
+    break_entry = tk.Entry(config_window, bg="#b22222", fg="white")
     break_entry.pack()
 
     # Create a save button to apply the configuration
-    save_button = tk.Button(config_window, text="Save", command=lambda: save_configuration(timer_entry.get(), break_entry.get()))
+    save_button = tk.Button(config_window, text="Save", command=lambda: save_configuration(timer_entry.get(), break_entry.get()), bg="red", fg="white", font=("Comic Sans MS", 14), width=5, height=1, bd=5, relief="ridge")
     save_button.pack()
 
 # def save_configuration(timer, break_time):
