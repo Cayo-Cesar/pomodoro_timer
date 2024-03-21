@@ -1,7 +1,7 @@
 # Pomodoro Timer
 
 ## Descrição
-Este é um aplicativo de Pomodoro Timer construído usando Python e Tkinter. A Técnica Pomodoro é um método de gerenciamento de tempo que utiliza um temporizador para dividir o trabalho em intervalos, tradicionalmente de 25 minutos de duração, separados por breves pausas. Esse app na sua release 1.0 está configurado pra 60 minutos.
+Este é um aplicativo de Pomodoro Timer construído usando Python e Tkinter. A Técnica Pomodoro é um método de gerenciamento de tempo que utiliza um temporizador para dividir o trabalho em intervalos, tradicionalmente de 25 minutos de duração, separados por breves pausas.
 
 ## Recursos
 - Iniciar, pausar, resetar o temporizador.
