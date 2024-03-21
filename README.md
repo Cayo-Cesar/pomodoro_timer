@@ -5,7 +5,13 @@ Este é um aplicativo de Pomodoro Timer construído usando Python e Tkinter. A T
 
 ## Recursos
 - Iniciar, pausar, resetar o temporizador.
+  
+- ![Captura de Tela (3)](https://github.com/Cayo-Cesar/pomodoro_timer/assets/96149641/3c735df9-6c1e-4633-bf68-d9cfd05e23fd)
+
 - Configurar o tempo do timer e o tempo da pausa.
+
+-![Captura de Tela (4)](https://github.com/Cayo-Cesar/pomodoro_timer/assets/96149641/f96cc861-2dc5-430c-8351-4f7ca6f6c73c)
+
 - Notifica quando o temporizador principal ou o tempo de pausa termina.
 - Interface do usuário simples e intuitiva.
 
