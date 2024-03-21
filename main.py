@@ -10,7 +10,9 @@ is_break_time = False
 
 
 def update_timer():
+
     global remaining_time, is_break_time
+
     if remaining_time > 0 and not is_paused:
         minutes = remaining_time // 60
         seconds = remaining_time % 60
@@ -28,6 +30,7 @@ def update_timer():
             is_break_time = True
             ctypes.windll.user32.MessageBoxW(0, "O tempo principal terminou. Aperte em OK pra iniciar o tempo de pausa", "Alerta", 1)
             start_break()
+            
 def start_timer():
     global remaining_time, is_paused
     is_paused = False
@@ -69,12 +72,12 @@ def open_configuration_window():
     config_window.configure(background="#b22222")
 
     # Create labels and entry fields for setting the timer and break time
-    timer_label = tk.Label(config_window, text="Timer (minutes):",bg="#b22222", fg="white")
+    timer_label = tk.Label(config_window, text="Timer (minutes):",font=("Comic Sans MS", 12), bg="#b22222", fg="white")
     timer_label.pack()
     timer_entry = tk.Entry(config_window, bg="#b22222", fg="white")
     timer_entry.pack()
 
-    break_label = tk.Label(config_window, text="Break (minutes):",bg="#b22222", fg="white")
+    break_label = tk.Label(config_window, text="Break (minutes):",font=("Comic Sans MS", 12), bg="#b22222", fg="white")
     break_label.pack()
     break_entry = tk.Entry(config_window, bg="#b22222", fg="white")
     break_entry.pack()
